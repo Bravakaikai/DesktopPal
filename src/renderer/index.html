@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DesktopPal</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <div id="toy-cursor" hidden aria-hidden="true"></div>
+      <div id="pet">
+        <div id="pet-tools" aria-label="寵物操作">
+          <button id="feed-pet" type="button" data-icon="feed"></button>
+          <button id="toy-pet" type="button" data-icon="toy" aria-pressed="false"></button>
+          <button id="sleep-pet" type="button" data-icon="sleep"></button>
+          <button id="clean-pet" type="button" data-icon="clean"></button>
+          <button id="settings-pet" type="button" data-icon="settings"></button>
+          <div id="pet-vitals">
+            <span class="pet-vital"><span data-icon="feed"></span><meter id="hunger-meter" min="0" max="100" value="80"></meter><output id="hunger-value">80</output></span>
+            <span class="pet-vital"><span data-icon="energy"></span><meter id="energy-meter" min="0" max="100" value="100"></meter><output id="energy-value">100</output></span>
+            <span class="pet-vital"><span data-icon="cleanliness"></span><meter id="cleanliness-meter" min="0" max="100" value="100"></meter><output id="cleanliness-value">100</output></span>
+            <span class="pet-vital"><span data-icon="happiness"></span><meter id="happiness-meter" min="0" max="100" value="70"></meter><output id="happiness-value">70</output></span>
+          </div>
+        </div>
+        <div id="pet-face"><img id="pet-sprite" alt="Puppy" draggable="false" src="../assets/pets/dog/idle-00.png" /></div>
+        <div id="mood-badge"></div>
+        <div id="pet-speech" role="status"></div>
+      <aside id="reminder-card" hidden role="status"><div id="reminder-symbol"></div><span id="reminder-text"></span><button id="reminder-done" data-icon="done"></button><button id="reminder-later" data-icon="later"></button></aside>
+      </div>
+    </div>
+    <script src="./ui.js"></script><script src="./renderer.js"></script>
+  </body>
+</html>

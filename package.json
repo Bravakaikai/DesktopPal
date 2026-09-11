@@ -1,0 +1,54 @@
+{
+  "name": "desktoppal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "跨平台桌面虛擬寵物陪伴軟體",
+  "author": "DesktopPal contributors",
+  "license": "MIT",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
+    "start": "npm run build && electron .",
+    "dev": "tsc -p tsconfig.json -w",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "electron": "^32.2.0",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.6.3"
+  },
+  "build": {
+    "appId": "tw.com.wayi.desktoppal",
+    "productName": "DesktopPal",
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    }
+  }
+}

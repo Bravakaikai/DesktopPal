@@ -1,0 +1,10 @@
+const net = require('node:net');
+const fs = require('node:fs');
+const codePath = process.argv[2];
+const command = codePath ? {type:'execute_code',params:{code:fs.readFileSync(codePath,'utf8')}} : {type:'get_scene_info',params:{}};
+const socket = net.createConnection({host:'127.0.0.1',port:9876},()=>socket.write(JSON.stringify(command)));
+let data='';
+socket.setTimeout(240000);
+socket.on('data',chunk=>{data+=chunk;try {const result=JSON.parse(data); console.log(JSON.stringify(result,null,2));socket.end();}catch{}});
+socket.on('timeout',()=>{console.error('Blender timeout');socket.destroy();process.exitCode=1;});
+socket.on('error',error=>{console.error(error.message);process.exitCode=1;});

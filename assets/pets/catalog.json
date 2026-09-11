@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dog",
+    "name": "巴哥犬",
+    "motion": "ground",
+    "speed": 26.5746
+  },
+  {
+    "id": "fish",
+    "name": "小丑魚",
+    "motion": "float",
+    "speed": 26.5746
+  },
+  {
+    "id": "cat",
+    "name": "橘白貓",
+    "motion": "ground",
+    "speed": 26.5746
+  },
+  {
+    "id": "rabbit",
+    "name": "白兔",
+    "motion": "ground",
+    "speed": 26.5746
+  },
+  {
+    "id": "pig",
+    "name": "粉紅豬",
+    "motion": "ground",
+    "speed": 26.5746
+  }
+]

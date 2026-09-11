@@ -1,0 +1,25 @@
+const assert=require('node:assert/strict');
+module.exports=async function checkDig(win,mouse,waitFor,pause) {
+  const js=code=>win.webContents.executeJavaScript(code);
+  await mouse({type:'mouseMove',x:2,y:2});
+  await js(`closeTools();hovering=false;document.activeElement.blur();foods.splice(0).forEach(f=>f.element.remove());pendingWaste=null;queuedActions.length=0;restPhase='none';
+    renderState({petId:selectedId,hunger:80,mood:70,weight:50,growth:100});x=220;y=220;direction=1;overrideTime=5;setAction('dig');actionTime=0;document.querySelectorAll('.pet-particle').forEach(el=>el.remove())`);
+  await pause(100);
+  assert.equal(await js(`document.querySelectorAll('.dig-dust').length`),0,'No dust while both paws are lifting');
+  await waitFor(win,`document.querySelectorAll('.dig-dust').length===6`);
+  assert.ok(await js(`(()=>{const dots=[...document.querySelectorAll('.dig-dust')];return new Set(dots.map(d=>d.style.left)).size===2 && dots.every(d=>parseFloat(d.style.left)>x+petWidth/2&&parseFloat(d.style.top)>y+petWidth*.78&&parseFloat(d.style.top)<y+petWidth*.9&&parseFloat(d.style.getPropertyValue('--drift'))<0)})()`),'Both paws kick dust backward from their contact points');
+  assert.ok(await js(`sprite.src.includes('/dig-')&&x===220&&y===220`),'Digging stays in place');
+  const point=await js(`({x:Math.round(x+petWidth/2),y:Math.round(y+petWidth/2)})`);
+  await mouse({type:'mouseMove',...point});
+  await mouse({type:'mouseDown',button:'left',clickCount:1,...point});
+  await pause(700);
+  assert.ok(await js(`held!==null&&!dragging&&document.querySelectorAll('.dig-dust').length===0`),'Holding the pet stops digging dust');
+  await mouse({type:'mouseUp',button:'left',clickCount:1,...point});
+  await pause(80);
+  await mouse({type:'mouseMove',x:2,y:2});
+  await js(`closeTools();hovering=false;renderState({petId:selectedId,hunger:80,mood:70,weight:50,growth:0});direction=-1;overrideTime=5;setAction('dig');actionTime=0;document.querySelectorAll('.pet-particle').forEach(el=>el.remove())`);
+  await waitFor(win,`document.querySelectorAll('.dig-dust').length===6`);
+  assert.ok(await js(`(()=>{const dots=[...document.querySelectorAll('.dig-dust')];return new Set(dots.map(d=>d.style.left)).size===2&&dots.every(d=>parseFloat(d.style.left)<x+petWidth/2&&parseFloat(d.style.getPropertyValue('--drift'))>0)})()`),'Dust follows tiny pet size and mirrored paws');
+  await js(`setAction('idle');overrideTime=0;modeTimer=2;direction=1`);
+  console.log('PASS two-paw dig contact, backward dust, stationary body, hold cancellation and mirrored baby size');
+};
