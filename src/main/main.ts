@@ -6,7 +6,9 @@ import { PetStateManager } from "./petState";
 import { createTrayIcon } from "./trayIcon";
 import { InteractionType, PetAction } from "../shared/types";
 
-const DECAY_INTERVAL_MS = 15_000;
+// Lose 2 fullness points every two minutes: a full pet needs about 56 minutes
+// to reach the hungry warning, and a meal restores about 30 minutes of fullness.
+const DECAY_INTERVAL_MS = 2 * 60_000;
 
 let petWindow: BrowserWindow | null = null;
 let tray: Tray | null = null;
