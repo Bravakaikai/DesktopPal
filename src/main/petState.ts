@@ -1,20 +1,22 @@
 import { PetState } from "../shared/types";
 
 const clamp = (value: number): number => Math.max(0, Math.min(100, value));
+const DIGESTION_DELAY_MS = 20 * 60_000;
+const ELIMINATION_INTERVAL_MS = 20 * 60_000;
 
 export class PetStateManager {
   private saved = new Map<string, PetState>();
-  private habits = new Map<string, { digestAt: number; fullFeeds: number; lastFeed: number; rubs: number }>();
-  private habit() {
+  private habits = new Map<string, { digestAt: number; nextWasteAt: number; fullFeeds: number; lastFeed: number; rubs: number }>();
+  private habit(now = Date.now()) {
     let value = this.habits.get(this.state.petId);
     if (!value) {
-      value = { digestAt: 0, fullFeeds: 0, lastFeed: 0, rubs: 0 };
+      value = { digestAt: 0, nextWasteAt: now + ELIMINATION_INTERVAL_MS, fullFeeds: 0, lastFeed: 0, rubs: 0 };
       this.habits.set(this.state.petId, value);
     }
     return value;
   }
   feedReaction(now = Date.now()): "eat" | "vomit" {
-    const habit = this.habit();
+    const habit = this.habit(now);
     habit.fullFeeds = this.state.hunger >= 95 && now - habit.lastFeed < 30000 ? habit.fullFeeds + 1 : 0;
     habit.lastFeed = now;
     if (habit.fullFeeds >= 2) {
@@ -25,7 +27,8 @@ export class PetStateManager {
       return "vomit";
     }
     this.feed();
-    if (!habit.digestAt) habit.digestAt = now + 45000;
+    // Several meals share one digestion timer instead of adding a mess per meal.
+    if (!habit.digestAt) habit.digestAt = now + DIGESTION_DELAY_MS;
     return "eat";
   }
   rubReaction(): "rub" | "wiggle" | "react" | "grumpy" {
@@ -34,11 +37,18 @@ export class PetStateManager {
     this.state.mood = clamp(this.state.mood + 3);
     return (["rub", "wiggle", "react", "grumpy"] as const)[(habit.rubs - 1) % 4];
   }
-  nextAutonomousAction(now = Date.now()): "poop" | null {
-    const habit = this.habit();
-    if (!habit.digestAt || now < habit.digestAt) return null;
+  nextAutonomousAction(now = Date.now()): "poop" | "pee" | null {
+    const habit = this.habit(now);
+    if (now < habit.nextWasteAt) return null;
+    // Wait for the pending meal rather than peeing immediately before pooping.
+    if (habit.digestAt && now < habit.digestAt) return null;
+    const action = habit.digestAt ? "poop" : this.state.petId === "dog" ? "pee" : null;
+    if (!action) return null;
     habit.digestAt = 0;
-    return "poop";
+    // Cleaning and switching pets never reset this per-pet cooldown. Missed time
+    // produces only one event, with the next interval starting now.
+    habit.nextWasteAt = now + ELIMINATION_INTERVAL_MS;
+    return action;
   }
   clean(): PetState {
     this.state.mood = clamp(this.state.mood + 2);

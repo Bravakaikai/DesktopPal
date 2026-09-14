@@ -8,4 +8,4 @@ export interface PetState {
 }
 
 export type InteractionType = "pet" | "feed" | "clean" | "rub";
-export type PetAction = "eat" | "react" | "sleep" | "rub" | "wiggle" | "grumpy" | "poop" | "vomit" | "clean" | "place-food";
+export type PetAction = "eat" | "react" | "sleep" | "rub" | "wiggle" | "grumpy" | "poop" | "pee" | "vomit" | "clean" | "place-food";

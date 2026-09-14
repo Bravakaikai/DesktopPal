@@ -1,7 +1,7 @@
 // This file is loaded as a plain browser script; no imports or exports.
 interface PetState { petId: string; name: string; hunger: number; mood: number; weight: number; growth: number }
 type Action = "idle" | "walk" | "run" | "sit" | "sniff" | "stretch" | "react" | "eat" | "sleep" | "drag" | "rub" | "wiggle" | "grumpy" | "poop" | "vomit" | "dig" | "pee" | "groom" | "pounce" | "earwiggle" | "hop" | "roll" | "snuffle" | "bubbles" | "twirl";
-type IncomingAction = "eat" | "react" | "sleep" | "rub" | "wiggle" | "grumpy" | "poop" | "vomit" | "clean" | "place-food";
+type IncomingAction = "eat" | "react" | "sleep" | "rub" | "wiggle" | "grumpy" | "poop" | "pee" | "vomit" | "clean" | "place-food";
 interface Behavior { action: Action; duration: number; weight: number; speedScale: number }
 interface PetManifest {
   id: string; name: string; motion: "ground" | "float" | "hop"; speed: number; displaySize: number;
@@ -222,7 +222,9 @@ function chooseBehavior(): void {
     { action: "idle" as Action, duration: 3, weight: 2, speedScale: 0 },
     { action: "walk" as Action, duration: 5, weight: 4, speedScale: 1 },
   ];
-  const choices = available.filter(item => hungerLevel >= 25 || !["run", "pounce", "hop", "dig", "roll"].includes(item.action)).map(item => ({ ...item,
+  // Elimination is scheduled by the main process, never by the random idle loop.
+  const choices = available.filter(item => !["pee", "poop"].includes(item.action)
+    && (hungerLevel >= 25 || !["run", "pounce", "hop", "dig", "roll"].includes(item.action))).map(item => ({ ...item,
     weight: (item.speedScale ? item.weight * energy : item.weight * (2 - energy)) * (hungerLevel<45 && item.action==="sniff" ? 4 : 1),
     duration: item.speedScale ? item.duration * Math.max(.5, energy) : item.duration * (1 + (1 - energy) * 1.5),
   }));
@@ -479,9 +481,9 @@ function receiveAction(next: IncomingAction): void {
     if (queuedActions.length < 8) queuedActions.push(next);
     return;
   }
-  if (next !== "poop" && next !== "vomit") { restPhase="none";movingSeconds=0; }
+  if (!["poop", "pee", "vomit"].includes(next)) { restPhase="none";movingSeconds=0; }
   setAction(next); actionTime = 0;
-  overrideTime = next === "sleep" ? 20 : next === "poop" ? 2.4 : next === "vomit" ? 1.8 : next === "eat" ? 1.4 : 1.2;
+  overrideTime = next === "sleep" ? 20 : next === "poop" || next === "pee" ? 2.4 : next === "vomit" ? 1.8 : next === "eat" ? 1.4 : 1.2;
   if (next === "poop" || next === "vomit") pendingWaste = next;
   const phrases: Partial<Record<IncomingAction, string>> = {
     eat: "啊嗚！", react: "好喜歡你！", sleep: "Zzz…", rub: "好舒服～",

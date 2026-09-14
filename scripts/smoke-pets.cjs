@@ -142,7 +142,16 @@ async function run(win) {
   await waitFor(win, `document.querySelector('#pet-sprite').src.includes('/dog/')`);
   await require('./check-care.cjs')(win,mouse,waitFor,pause);
   await require('./check-dig.cjs')(win,mouse,waitFor,pause);
-  await win.webContents.executeJavaScript(`hovering=false;document.activeElement.blur();overrideTime=3;setAction('pee')`);
+  assert.ok(await win.webContents.executeJavaScript(`(() => {
+    const random=Math.random,previousMode=mode,previousTimer=modeTimer,previousMoving=movingSeconds,previousDirection=direction;
+    try {
+      movingSeconds=0;
+      for(let i=0;i<100;i++) { Math.random=()=>i/100;chooseBehavior();if(['pee','poop'].includes(mode.action))return false; }
+      return true;
+    } finally { Math.random=random;mode=previousMode;modeTimer=previousTimer;movingSeconds=previousMoving;direction=previousDirection; }
+  })()`), 'Random activities never bypass elimination cooldown');
+  await win.webContents.executeJavaScript(`hovering=false;document.activeElement.blur();overrideTime=0;setAction('idle')`);
+  win.webContents.send('pet-action','pee');
   await waitFor(win, `document.querySelector('.waste.pee') !== null`);
   await win.webContents.executeJavaScript(`document.querySelector('.waste.pee').click()`);
   await mouse({type:'mouseMove',x:2,y:2});
@@ -240,17 +249,10 @@ async function run(win) {
   assert.equal(state.rename('  Buddy  ').name,'Buddy');
   assert.equal(state.select('dog').name,''); assert.equal(state.select('cat').name,'Buddy');
   console.log('PASS pet nicknames are trimmed and kept separate per pet');
+  require('./check-elimination.cjs')();
   const digestion = new PetStateManager();
-  assert.equal(digestion.feedReaction(100000),'eat');
-  assert.equal(digestion.nextAutonomousAction(144999),null);
-  assert.equal(digestion.nextAutonomousAction(145000),'poop');
-  assert.equal(digestion.nextAutonomousAction(145001),null);
-  assert.equal(digestion.feedReaction(150000),'eat');
-  assert.equal(digestion.feedReaction(151000),'eat');
-  assert.equal(digestion.feedReaction(152000),'vomit');
-  assert.equal(digestion.nextAutonomousAction(250000),null);
   assert.deepEqual(Array.from({length:4},()=>digestion.rubReaction()),['rub','wiggle','react','grumpy']);
-  console.log('PASS digestion timing, overfeeding, single waste event and varied rub responses');
+  console.log('PASS varied rub responses');
   assert.deepEqual(errors, []);
   console.log('PASS independent pet state; no renderer errors');
   assert.equal(JSON.parse(fs.readFileSync(path.join(smokeProfile,'pet-state.json'),'utf8')).pets.length,5,'Pet progress saved to disk');
