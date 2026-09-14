@@ -98,6 +98,9 @@ function placeFood(clientX: number, clientY: number): void {
 function energyForHunger(hunger: number): number {
   return hunger >= 60 ? 1 : hunger >= 25 ? .45 + (hunger - 25) / 35 * .55 : .18 + hunger / 25 * .27;
 }
+function movementSpeed(multiplier=1): number {
+  return manifest ? manifest.speed*(petWidth/manifest.displaySize)*multiplier*energy : 0;
+}
 function syncToyButton(): void {
   toyButton.setAttribute("aria-pressed", String(playingToy));
   const label = ui.t(playingToy ? "stopToy" : "toy");
@@ -259,7 +262,7 @@ function tick(timestamp: number): void {
         const goalY=Math.max(0,Math.min(window.innerHeight-petWidth,foodTarget.y-petWidth*.80));
         const dx=goalX-x,dy=goalY-y,distance=Math.hypot(dx,dy);
         const run=manifest.behaviors?.find(b=>b.action==="run");
-        const speed=manifest.speed*(run?.speedScale??1)*energy;
+        const speed=movementSpeed(run?.speedScale??1);
         if (distance<=Math.max(3,speed*dt)) {
           x=goalX;y=goalY;foodTarget.served=true;api.interact("feed");
         } else {
@@ -273,7 +276,7 @@ function tick(timestamp: number): void {
         const goalY = Math.max(0, Math.min(window.innerHeight-petWidth, toyY-petWidth*.8));
         const dx = goalX-x, dy = goalY-y, distance = Math.hypot(dx,dy);
         const run = manifest.behaviors?.find(b => b.action === "run");
-        const speed = manifest.speed * (run?.speedScale ?? 1) * 1.6 * energy;
+        const speed = movementSpeed((run?.speedScale ?? 1) * 1.6);
         const caught = distance < 7;
         toyCursor.classList.toggle("caught", caught);
         if (caught) {
@@ -292,7 +295,7 @@ function tick(timestamp: number): void {
       if (!overrideTime && !editing && !foodTarget && !playingToy && restPhase !== "none") {
         if (restPhase === "approach") {
           direction = restTarget > x ? 1 : -1;
-          const step = manifest.speed * energy * dt;
+          const step = movementSpeed() * dt;
           if (Math.abs(restTarget-x) <= step+1) {
             x=restTarget;restPhase="sleep";restRemaining=manifest.rest?.sleepSeconds ?? 25;setAction("sleep");speak("Zzz…",3);
           } else { x += direction*step;setAction("walk"); }
@@ -307,7 +310,7 @@ function tick(timestamp: number): void {
         if (restPhase === "none") setAction(mode.action);
         if (mode.speedScale && restPhase === "none") {
           movingSeconds += dt / Math.max(.4, energy);
-          x += direction * manifest.speed * mode.speedScale * energy * dt; clampPosition();
+          x += direction * movementSpeed(mode.speedScale) * dt; clampPosition();
           if (x <= 0) direction = 1;
           else if (x >= window.innerWidth - petWidth) direction = -1;
         }
@@ -325,9 +328,9 @@ function tick(timestamp: number): void {
     if (action === "dig" && !held && !dragging) {
       const dig=manifest.animations.dig!;
       const cycle=dig.frames.length/dig.fps;
-      // The scoop starts halfway through the loop. Emit from BOTH paws only
-      // when they hit the floor, using the same animation clock as the sprite.
-      if (Math.floor(actionTime/cycle-.5)>Math.floor(previousActionTime/cycle-.5)) digDust();
+      // Front paws scrape alternately at 1/4 and 3/4 of the loop.
+      const stroke=Math.floor(actionTime/cycle*2-.5);
+      if (stroke>Math.floor(previousActionTime/cycle*2-.5)) digDust(stroke%2===0?0:1);
     }
     if (action === "bubbles" && effectTime > .38) { effectTime=0;particle("bubble"); }
     const animation = manifest.animations[action] ?? manifest.animations.idle!;
@@ -399,14 +402,15 @@ function particle(kind: "dust" | "bubble"): void {
   dot.style.setProperty("--drift",`${(kind==="dust"?-direction:1)*(15+Math.random()*20)}px`);
   dot.addEventListener("animationend",()=>dot.remove());stage.appendChild(dot);
 }
-function digDust(): void {
+function digDust(pawIndex:0|1): void {
   const scale=petWidth/256;
-  for (const paw of [{x:161,y:211},{x:205,y:214}]) {
+  for (const paw of [[{x:146,y:214},{x:198,y:214}][pawIndex]]) {
     const localX=(paw.x-128)*bodyWidth+128;
     const originX=x+(direction===1?localX:256-localX)*scale;
     const originY=y-visualLift+paw.y*scale;
     for (let i=0;i<3;i++) {
       const dot=document.createElement("i");dot.className="pet-particle dig-dust";
+      dot.dataset.paw=String(pawIndex);
       dot.style.left=`${originX}px`;dot.style.top=`${originY}px`;
       const size=Math.max(1.5,(4+i)*scale);
       dot.style.width=dot.style.height=`${size}px`;

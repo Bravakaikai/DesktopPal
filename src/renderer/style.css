@@ -103,7 +103,7 @@ body {
 .pee i { width: 40px; height: 12px; left: 2px; bottom: 1px; background: #edcc55b8; border: 1px solid #cca931; border-radius: 50%; }
 .pet-particle { position: absolute; pointer-events: none; width: 5px; height: 5px; border-radius: 50%; animation: particle .7s ease-out forwards; }
 .pet-particle.dust { background: #b59879; }
-.pet-particle.dig-dust { background:#b99a76;animation:dig-dust .48s ease-out forwards; }
+.pet-particle.dig-dust { background:#b99a76;animation:dig-dust .32s ease-out forwards; }
 @keyframes dig-dust {
   0% { opacity:.9;transform:translate(0,0) scale(.65); }
   60% { opacity:.65;transform:translate(calc(var(--drift)*.65),var(--rise)) scale(1.1); }

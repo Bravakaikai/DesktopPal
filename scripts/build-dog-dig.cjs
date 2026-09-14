@@ -5,7 +5,7 @@ const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUA
 const {triangulate,deform}=require('./build-dog-gait.cjs');
 const root=path.resolve(__dirname,'..'),folder=path.join(root,'assets/pets/dog');
 const frameCount=24,fps=32;
-// Lift together, reach forward, plant both paws, then scrape back with force.
+// Each paw reaches and scrapes, half a cycle apart from the other paw.
 const keys=[{t:0,x:-15,y:-7},{t:.26,x:17,y:-22},{t:.46,x:21,y:0},{t:.77,x:-17,y:0},{t:1,x:-15,y:-7}];
 function motion(phase) {
   const end=keys.findIndex(key=>key.t>phase),a=keys[end-1],b=keys[end];
@@ -24,21 +24,44 @@ async function main() {
   for(const [paw,box] of [[0,[118,157,180,206]],[1,[174,205,194,220]]]) {
     for(const x of [box[0],box[1]])for(const y of [box[2],box[3]])points.push({x,y,paw});
   }
-  const triangles=triangulate(points),buffers=[],frames=[];
+  // Keep the transparent space below the paws outside both moving limbs.
+  points.push({x:164,y:216,part:'foot-gap'});
+  const triangles=triangulate(points).filter(ids=>{
+    const [a,b,c]=ids.map(j=>points[j]);
+    const area=(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
+    for(let y=Math.floor(Math.min(a.y,b.y,c.y));y<=Math.ceil(Math.max(a.y,b.y,c.y));y++)for(let x=Math.floor(Math.min(a.x,b.x,c.x));x<=Math.ceil(Math.max(a.x,b.x,c.x));x++) {
+      const u=((b.x-x)*(c.y-y)-(b.y-y)*(c.x-x))/area;
+      const v=((c.x-x)*(a.y-y)-(c.y-y)*(a.x-x))/area;
+      if(u>=0&&v>=0&&u+v<=1&&raw[(y*256+x)*4+3]>24)return true;
+    }
+    return false;
+  }),buffers=[],frames=[];
   for(let i=0;i<frameCount;i++) {
-    const phase=i/frameCount,stroke=motion(phase),effort=Math.sin(phase*Math.PI*2-Math.PI/2);
+    const phase=i/frameCount,stroke=motion((phase+.25)%1),effort=-Math.cos(phase*Math.PI*4);
     const transform=p=>{
-      if(p.paw!==undefined)return {x:p.x+stroke.x,y:p.y+stroke.y+(p.paw===0?12:0)};
-      if(p.part==='body')return {x:p.x+stroke.x*.12,y:p.y+effort*2.4};
+      if(p.part==='foot-gap') {
+        const near=motion((phase+.25)%1),far=motion((phase+.75)%1);
+        return {x:(157+near.x*.4+174+far.x*.4)/2,y:Math.max(218+near.y,220+far.y)+5};
+      }
+      if(p.paw!==undefined) {
+        const scrape=motion((phase+(p.paw===0?.25:.75))%1);
+        return {x:p.x+scrape.x*.4,y:p.y+scrape.y+(p.paw===0?12:0)};
+      }
+      if(p.part==='body')return {x:p.x+stroke.x*.04,y:p.y+effort*1.1};
       if(p.part==='tail')return {x:p.x+Math.sin(phase*Math.PI*2+.6)*3,y:p.y-effort*2};
       if(p.part==='head'||p.part==='ear') {
-        const angle=.035+effort*.045,dx=p.x-107,dy=p.y-131;
+        const angle=.025+effort*.025,dx=p.x-107,dy=p.y-131;
         return {x:107+dx*Math.cos(angle)-dy*Math.sin(angle)+stroke.x*.08,
           y:131+dx*Math.sin(angle)+dy*Math.cos(angle)+effort*1.2+(p.part==='ear'?Math.sin(phase*Math.PI*2-1)*2.5:0)};
       }
       return p;
     };
     const out=deform(raw,points,triangles,[],phase,transform);
+    {
+      const area=([a,b,c])=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
+      const bad=triangles.filter(ids=>area(ids.map(j=>points[j]))*area(ids.map(j=>transform(points[j])))<=0);
+      if(bad.length)throw new Error(`Folded character mesh at dig frame ${i}`);
+    }
     const name=`dig-${String(i).padStart(2,'0')}.png`;
     const png=await sharp(out,{raw:{width:256,height:256,channels:4}}).png().toBuffer();
     fs.writeFileSync(path.join(folder,name),png);buffers.push(png);frames.push(name);
@@ -54,6 +77,6 @@ async function main() {
     .gif({loop:0,delay:Array(frameCount).fill(Math.round(1000/fps)),dither:0}).toFile(path.join(root,'blender/dog-dig-preview.gif'));
   await sharp({create:{width:256*6,height:256,channels:4,background:'#eee7dd'}})
     .composite([0,4,8,12,16,20].map((frame,i)=>({input:buffers[frame],left:i*256,top:0}))).png().toFile(path.join(root,'blender/dog-dig-contact-sheet.png'));
-  console.log(`Built dog digging: ${frameCount} connected frames, synchronized paws, planted hind feet`);
+  console.log(`Built dog digging: ${frameCount} connected frames, alternating front paws, planted hind feet`);
 }
 if(require.main===module)main().catch(error=>{console.error(error);process.exit(1);});

@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const menus = [];
 const smokeProfile=path.resolve(__dirname,'../blender/.smoke-profile');fs.mkdirSync(smokeProfile,{recursive:true});app.setPath('userData',smokeProfile);
 fs.rmSync(path.join(smokeProfile,'pet-state.json'),{force:true});
-setTimeout(() => { console.error('Smoke test timed out'); app.exit(1); }, 90000).unref();
+setTimeout(() => { console.error('Smoke test timed out'); app.exit(1); }, 120000).unref();
 const build = Menu.buildFromTemplate.bind(Menu);
 Menu.buildFromTemplate = template => { const menu = build(template); menus.push(menu); return menu; };
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -19,8 +19,8 @@ app.on('browser-window-created', (_event, win) => {
   win.webContents.once('did-finish-load', () => run(win).catch(error => { console.error(error); app.exit(1); }));
 });
 require('../dist/main/main.js');
-async function waitFor(win, expression) {
-  for (let i = 0; i < 100; i++) {
+async function waitFor(win, expression, timeoutMs=5000) {
+  for (let i = 0; i < Math.ceil(timeoutMs/50); i++) {
     if (await win.webContents.executeJavaScript(expression)) return;
     await pause(50);
   }
@@ -47,6 +47,13 @@ async function run(win) {
 
   const errors = [];
   win.webContents.on('console-message', (_e, level, message) => { if (level >= 3) errors.push(message); });
+  if(process.env.PET_SMOKE_FOCUS==='motion') {
+    await waitFor(win,`manifest?.id==='dog'&&sprite.naturalWidth===256`);
+    await require('./check-care.cjs')(win,mouse,waitFor,pause);
+    await require('./check-dig.cjs')(win,mouse,waitFor,pause);
+    await require('./check-overlay-layout.cjs')(win,mouse,pause);
+    assert.deepEqual(errors,[]);console.log('PASS focused motion and overlay regression');app.exit(0);return;
+  }
   const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../assets/pets/catalog.json'), 'utf8'));
   for (const entry of catalog) {
     const menu = menus.at(-1);
@@ -177,12 +184,12 @@ async function run(win) {
   await mouse({type:'mouseDown',button:'left',clickCount:1,...destination});
   await mouse({type:'mouseUp',button:'left',clickCount:1,...destination});
   // Leave the pointer on the bowl throughout approach and consumption.
-  await waitFor(win, `foods.some(f=>f.served)`);
+  await waitFor(win, `foods.some(f=>f.served)`,15000);
   await waitFor(win, `document.querySelector('#pet-sprite').src.includes('/eat-') || document.querySelector('#pet-sprite').src.includes('/vomit-')`);
   assert.ok(await win.webContents.executeJavaScript(`Math.abs(x-(420-petWidth/2))<4 && Math.abs(y-(378-petWidth*.8))<4`));
   console.log('PASS distant food reached and consumed with cursor left on bowl');
   await win.webContents.executeJavaScript(`foods.splice(0).forEach(f=>f.element.remove());overrideTime=0;pendingWaste=null;queuedActions.length=0;x=200;y=250;placeFood(420,378);openTools();hovering=true;document.querySelector('#sleep-pet').focus();document.querySelector('#sleep-pet').click();document.querySelector('#clean-pet').click()`);
-  await waitFor(win, `foods.some(f=>f.served)`);
+  await waitFor(win, `foods.some(f=>f.served)`,15000);
   assert.ok(await win.webContents.executeJavaScript(`Math.abs(x-(420-petWidth/2))<4&&Math.abs(y-(378-petWidth*.8))<4`),'Food pursuit survives focused and clicked toolbar controls');
   console.log('PASS feeding takes priority over hover, toolbar focus, petting and sleep clicks');
   let switchCleanEvents=0;
