@@ -1,0 +1,380 @@
+{
+  "id": "dog",
+  "name": "巴哥犬",
+  "motion": "ground",
+  "speed": 20,
+  "size": 256,
+  "displaySize": 128,
+  "animations": {
+    "idle": {
+      "frames": [
+        "idle-00.png",
+        "idle-01.png",
+        "idle-02.png",
+        "idle-03.png",
+        "idle-04.png",
+        "idle-05.png",
+        "idle-06.png",
+        "idle-07.png",
+        "idle-08.png",
+        "idle-09.png",
+        "idle-10.png",
+        "idle-11.png"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    "walk": {
+      "frames": [
+        "walk-00.png",
+        "walk-01.png",
+        "walk-02.png",
+        "walk-03.png",
+        "walk-04.png",
+        "walk-05.png",
+        "walk-06.png",
+        "walk-07.png",
+        "walk-08.png",
+        "walk-09.png",
+        "walk-10.png",
+        "walk-11.png",
+        "walk-12.png",
+        "walk-13.png",
+        "walk-14.png",
+        "walk-15.png",
+        "walk-16.png",
+        "walk-17.png",
+        "walk-18.png",
+        "walk-19.png",
+        "walk-20.png",
+        "walk-21.png",
+        "walk-22.png",
+        "walk-23.png",
+        "walk-24.png",
+        "walk-25.png",
+        "walk-26.png",
+        "walk-27.png",
+        "walk-28.png",
+        "walk-29.png",
+        "walk-30.png",
+        "walk-31.png",
+        "walk-32.png",
+        "walk-33.png",
+        "walk-34.png",
+        "walk-35.png",
+        "walk-36.png",
+        "walk-37.png",
+        "walk-38.png",
+        "walk-39.png",
+        "walk-40.png",
+        "walk-41.png",
+        "walk-42.png",
+        "walk-43.png",
+        "walk-44.png",
+        "walk-45.png",
+        "walk-46.png",
+        "walk-47.png"
+      ],
+      "fps": 48,
+      "loop": true,
+      "stride": 47.368421052631575
+    },
+    "run": {
+      "frames": [
+        "run-00.png",
+        "run-01.png",
+        "run-02.png",
+        "run-03.png",
+        "run-04.png",
+        "run-05.png",
+        "run-06.png",
+        "run-07.png",
+        "run-08.png",
+        "run-09.png",
+        "run-10.png",
+        "run-11.png",
+        "run-12.png",
+        "run-13.png",
+        "run-14.png",
+        "run-15.png",
+        "run-16.png",
+        "run-17.png",
+        "run-18.png",
+        "run-19.png",
+        "run-20.png",
+        "run-21.png",
+        "run-22.png",
+        "run-23.png",
+        "run-24.png",
+        "run-25.png",
+        "run-26.png",
+        "run-27.png",
+        "run-28.png",
+        "run-29.png",
+        "run-30.png",
+        "run-31.png",
+        "run-32.png",
+        "run-33.png",
+        "run-34.png",
+        "run-35.png",
+        "run-36.png",
+        "run-37.png",
+        "run-38.png",
+        "run-39.png",
+        "run-40.png",
+        "run-41.png",
+        "run-42.png",
+        "run-43.png",
+        "run-44.png",
+        "run-45.png",
+        "run-46.png",
+        "run-47.png"
+      ],
+      "fps": 48,
+      "loop": true,
+      "stride": 65.51724137931035
+    },
+    "sit": {
+      "frames": [
+        "sit-00.png",
+        "sit-01.png",
+        "sit-02.png",
+        "sit-03.png",
+        "sit-04.png",
+        "sit-05.png"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    "sniff": {
+      "frames": [
+        "sniff-00.png",
+        "sniff-01.png",
+        "sniff-02.png",
+        "sniff-03.png",
+        "sniff-04.png",
+        "sniff-05.png"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    "stretch": {
+      "frames": [
+        "stretch-00.png",
+        "stretch-01.png",
+        "stretch-02.png",
+        "stretch-03.png",
+        "stretch-04.png",
+        "stretch-05.png"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    "react": {
+      "frames": [
+        "react-00.png",
+        "react-01.png",
+        "react-02.png",
+        "react-03.png",
+        "react-04.png",
+        "react-05.png"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    "eat": {
+      "frames": [
+        "eat-00.png",
+        "eat-01.png",
+        "eat-02.png",
+        "eat-03.png",
+        "eat-04.png",
+        "eat-05.png"
+      ],
+      "fps": 7,
+      "loop": true
+    },
+    "sleep": {
+      "frames": [
+        "sleep-00.png",
+        "sleep-01.png",
+        "sleep-02.png",
+        "sleep-03.png"
+      ],
+      "fps": 2,
+      "loop": true
+    },
+    "drag": {
+      "frames": [
+        "drag-00.png",
+        "drag-01.png",
+        "drag-02.png",
+        "drag-03.png",
+        "drag-04.png",
+        "drag-05.png",
+        "drag-06.png",
+        "drag-07.png"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    "rub": {
+      "frames": [
+        "rub-00.png",
+        "rub-01.png",
+        "rub-02.png",
+        "rub-03.png",
+        "rub-04.png",
+        "rub-05.png"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    "wiggle": {
+      "frames": [
+        "wiggle-00.png",
+        "wiggle-01.png",
+        "wiggle-02.png",
+        "wiggle-03.png",
+        "wiggle-04.png",
+        "wiggle-05.png"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    "grumpy": {
+      "frames": [
+        "grumpy-00.png",
+        "grumpy-01.png",
+        "grumpy-02.png",
+        "grumpy-03.png"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    "poop": {
+      "frames": [
+        "poop-00.png",
+        "poop-01.png",
+        "poop-02.png",
+        "poop-03.png",
+        "poop-04.png",
+        "poop-05.png"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    "vomit": {
+      "frames": [
+        "vomit-00.png",
+        "vomit-01.png",
+        "vomit-02.png",
+        "vomit-03.png",
+        "vomit-04.png",
+        "vomit-05.png"
+      ],
+      "fps": 7,
+      "loop": true
+    },
+    "dig": {
+      "frames": [
+        "dig-00.png",
+        "dig-01.png",
+        "dig-02.png",
+        "dig-03.png",
+        "dig-04.png",
+        "dig-05.png",
+        "dig-06.png",
+        "dig-07.png",
+        "dig-08.png",
+        "dig-09.png",
+        "dig-10.png",
+        "dig-11.png",
+        "dig-12.png",
+        "dig-13.png",
+        "dig-14.png",
+        "dig-15.png",
+        "dig-16.png",
+        "dig-17.png",
+        "dig-18.png",
+        "dig-19.png",
+        "dig-20.png",
+        "dig-21.png",
+        "dig-22.png",
+        "dig-23.png"
+      ],
+      "fps": 32,
+      "loop": true
+    },
+    "pee": {
+      "frames": [
+        "pee-00.png",
+        "pee-01.png",
+        "pee-02.png",
+        "pee-03.png",
+        "pee-04.png",
+        "pee-05.png",
+        "pee-06.png",
+        "pee-07.png"
+      ],
+      "fps": 10,
+      "loop": true
+    }
+  },
+  "behaviors": [
+    {
+      "action": "idle",
+      "duration": 3,
+      "weight": 3,
+      "speedScale": 0
+    },
+    {
+      "action": "walk",
+      "duration": 6,
+      "weight": 5,
+      "speedScale": 1
+    },
+    {
+      "action": "run",
+      "duration": 3,
+      "weight": 1,
+      "speedScale": 2.3
+    },
+    {
+      "action": "sit",
+      "duration": 4,
+      "weight": 2,
+      "speedScale": 0
+    },
+    {
+      "action": "sniff",
+      "duration": 3,
+      "weight": 2,
+      "speedScale": 0
+    },
+    {
+      "action": "stretch",
+      "duration": 2.5,
+      "weight": 1,
+      "speedScale": 0
+    },
+    {
+      "action": "dig",
+      "duration": 3.75,
+      "weight": 2,
+      "speedScale": 0
+    },
+    {
+      "action": "pee",
+      "duration": 2.4,
+      "weight": 1,
+      "speedScale": 0
+    }
+  ],
+  "rest": {
+    "afterMovingSeconds": 55,
+    "sleepSeconds": 25,
+    "edgeInset": 16
+  },
+  "artStyle": "illustrated-2d"
+}

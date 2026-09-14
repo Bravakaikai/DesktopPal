@@ -1,0 +1,37 @@
+[
+  {
+    "name": "body",
+    "width": 584,
+    "height": 426,
+    "left": 67,
+    "top": 50
+  },
+  {
+    "name": "near-front",
+    "width": 200,
+    "height": 385,
+    "left": 789,
+    "top": 97
+  },
+  {
+    "name": "near-rear",
+    "width": 230,
+    "height": 384,
+    "left": 1178,
+    "top": 98
+  },
+  {
+    "name": "far-front",
+    "width": 190,
+    "height": 373,
+    "left": 181,
+    "top": 576
+  },
+  {
+    "name": "far-rear",
+    "width": 231,
+    "height": 375,
+    "left": 668,
+    "top": 573
+  }
+]

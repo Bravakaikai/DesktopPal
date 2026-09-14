@@ -50,6 +50,7 @@ async function run(win) {
   if(process.env.PET_SMOKE_FOCUS==='motion') {
     await waitFor(win,`manifest?.id==='dog'&&sprite.naturalWidth===256`);
     await require('./check-care.cjs')(win,mouse,waitFor,pause);
+    await require('./check-walk.cjs')(win,mouse);
     await require('./check-dig.cjs')(win,mouse,waitFor,pause);
     await require('./check-overlay-layout.cjs')(win,mouse,pause);
     assert.deepEqual(errors,[]);console.log('PASS focused motion and overlay regression');app.exit(0);return;
@@ -60,6 +61,12 @@ async function run(win) {
     const item = menu.items.find(item => item.label === '切換寵物').submenu.items.find(item => item.label === entry.name);
     item.click();
     await waitFor(win, `document.querySelector('#pet').title.startsWith(${JSON.stringify(entry.name)}) && document.querySelector('#pet-sprite').alt === ${JSON.stringify(entry.name)} && document.querySelector('#pet-sprite').naturalWidth === 256 && document.querySelector('#pet-sprite').src.includes('/${entry.id}/')`);
+    assert.ok(await win.webContents.executeJavaScript(`(() => {
+      const frames=decodedFrames.get(manifest.id);
+      return frames.size===new Set(Object.values(manifest.animations).flatMap(a=>a.frames)).size
+        && [...frames.values()].every(image=>image.complete&&image.naturalWidth===256)
+        && [...frames.values()].includes(sprite)&&document.querySelectorAll('#pet-sprite').length===1;
+    })()`),`${entry.id}: every frame is predecoded and only one sprite is visible`);
     for (const [label, action] of [['餵食','eat'],['摸摸','react'],['休息一下','sleep']]) {
       menus.at(-1).items.find(item => item.label === label).click();
       if(action==='eat')await placeNearbyFood();
@@ -141,6 +148,7 @@ async function run(win) {
   await win.webContents.executeJavaScript(`api.selectPet('dog')`);
   await waitFor(win, `document.querySelector('#pet-sprite').src.includes('/dog/')`);
   await require('./check-care.cjs')(win,mouse,waitFor,pause);
+  await require('./check-walk.cjs')(win,mouse);
   await require('./check-dig.cjs')(win,mouse,waitFor,pause);
   assert.ok(await win.webContents.executeJavaScript(`(() => {
     const random=Math.random,previousMode=mode,previousTimer=modeTimer,previousMoving=movingSeconds,previousDirection=direction;

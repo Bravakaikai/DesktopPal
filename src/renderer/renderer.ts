@@ -23,7 +23,7 @@ const ui = (window as unknown as { PetUI: { zh: boolean; t(key: string): string;
 const api = (window as unknown as { petAPI: PetAPI }).petAPI;
 const stage = document.getElementById("stage") as HTMLDivElement;
 const pet = document.getElementById("pet") as HTMLDivElement;
-const sprite = document.getElementById("pet-sprite") as HTMLImageElement;
+let sprite = document.getElementById("pet-sprite") as HTMLImageElement;
 const moodBadge = document.getElementById("mood-badge") as HTMLDivElement;
 const petTools = document.getElementById("pet-tools") as HTMLDivElement;
 const speech = document.getElementById("pet-speech") as HTMLDivElement;
@@ -179,6 +179,7 @@ let pendingWaste: "poop" | "vomit" | null = null;
 const queuedActions: IncomingAction[] = [];
 let rubDistance = 0, rubTurns = 0, lastRubX = 0, lastRubSign = 0, lastRubAt = 0, rubCooldown = 0;
 const cache = new Map<string, Promise<PetManifest>>();
+const decodedFrames = new Map<string, Map<string, HTMLImageElement>>();
 
 function clampPosition(): void {
   x = Math.max(0, Math.min(x, window.innerWidth - petWidth));
@@ -204,9 +205,12 @@ function loadPet(id: string): Promise<PetManifest> {
       if (!response.ok) throw new Error(`Missing pet manifest: ${id}`);
       const data: PetManifest = await response.json();
       if (!data.animations.idle?.frames.length) throw new Error(`Missing idle frames: ${id}`);
-      await Promise.all(Object.values(data.animations).flatMap(a => a!.frames).map(file => {
-        const image = new Image(); image.src = `../assets/pets/${id}/${file}`; return image.decode();
+      const frames = new Map<string, HTMLImageElement>();
+      await Promise.all([...new Set(Object.values(data.animations).flatMap(a => a!.frames))].map(async file => {
+        const image = new Image(); image.decoding = "sync"; image.draggable = false;
+        image.src = `../assets/pets/${id}/${file}`; await image.decode(); frames.set(file, image);
       }));
+      decodedFrames.set(id, frames);
       return data;
     })();
     cache.set(id, pending); pending.catch(() => cache.delete(id));
@@ -345,7 +349,17 @@ function tick(timestamp: number): void {
     const raw = animation.stride ? Math.floor(gaitPhase*animation.frames.length) : Math.floor(actionTime * animation.fps);
     const index = animation.loop ? raw % animation.frames.length : Math.min(raw, animation.frames.length - 1);
     const src = `../assets/pets/${manifest.id}/${animation.frames[index]}`;
-    if (src !== displayedFrame) { sprite.src = src; displayedFrame = src; }
+    if (src !== displayedFrame) {
+      // Reuse the decoded image itself. Reassigning src on every step can
+      // leave the previous bitmap visible while the new one is still loading.
+      const next = decodedFrames.get(manifest.id)!.get(animation.frames[index])!;
+      next.alt = displayName(manifest.id);
+      if (next !== sprite) {
+        sprite.removeAttribute("id"); next.id = "pet-sprite";
+        sprite.replaceWith(next); sprite = next;
+      }
+      displayedFrame = src;
+    }
     const lift = dragging || held || action === "sleep" ? 0 : manifest.motion === "float" ? 6 + Math.sin(timestamp / 500) * 4 : manifest.motion === "hop" && action === "walk" ? Math.abs(Math.sin(timestamp / 110)) * 8 : 0;
     if (!toolsOpen || dragging || held) visualLift = lift;
     pet.style.transform = `translate(${x}px, ${Math.max(0, y - visualLift)}px)`;

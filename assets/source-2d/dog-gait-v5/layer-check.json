@@ -1,0 +1,10 @@
+{
+  "occlusionPixels": 57986,
+  "order": [
+    "far-rear",
+    "far-front",
+    "body",
+    "near-rear",
+    "near-front"
+  ]
+}
