@@ -4,6 +4,17 @@
 
 *[English →](README.md)*
 
+## 下載
+
+到 **[Releases 頁面](https://github.com/Bravakaikai/DesktopPal/releases/latest)** 抓最新版本，選你的作業系統對應的安裝檔執行即可：
+
+- **Windows**：`DesktopPal Setup x.x.x.exe`（安裝版）或 `DesktopPal x.x.x.exe`（免安裝版）
+- **macOS**：`DesktopPal-x.x.x.dmg` — 開啟後把 DesktopPal 拖進 Applications
+
+這些安裝檔沒有做程式碼簽章（需要付費的開發者憑證），第一次執行時作業系統會跳警告，屬正常現象：
+- **Windows**：SmartScreen 顯示「Windows 已保護您的電腦」→ 點**其他資訊 → 仍要執行**。
+- **macOS**：Gatekeeper 會直接拒絕開啟 → 在 App 上按右鍵（或 Control+點擊）→ **打開** → 在跳出的確認視窗再按一次**打開**。
+
 ## 畫面截圖
 
 | 桌面寵物（工具列展開） | 寵物選擇與設定視窗 |
@@ -100,6 +111,17 @@ npm run dist:linux   # Linux：輸出 AppImage
 - 打包設定在 `package.json` 的 `build` 欄位。`files` 只包含 `dist/**/*`，因為 main process 只會從 `dist/assets/...`（build 時由 `scripts/copy-static.js` 複製過去）讀取寵物素材，專案根目錄的 `assets/` 原始檔不會、也不需要被打包進最終產物，所以安裝檔可以維持精簡。
 - App icon（`build/icon.png`，1024×1024）是用巴哥犬的圖案合成的，electron-builder 會自動從這張圖產生各平台需要的 `.ico`/`.icns`。要更換圖示：執行 `env -u ELECTRON_RUN_AS_NODE ./node_modules/electron/dist/electron.exe scripts/generate-icon.cjs` 重新產生，或直接用你自己的 1024×1024 正方形 PNG 取代 `build/icon.png`。
 - macOS 的 `.dmg` / `.zip` 只能在真正的 macOS 機器上打包（Apple 工具鏈的限制），或串進有 macOS runner 的 CI（例如 GitHub Actions 的 `macos-latest`）。
+
+### 自動化發佈（CI/CD）
+
+`.github/workflows/release.yml` 會在 GitHub Actions 上打包 Windows 與 macOS 安裝檔，直接發佈到 [Releases 頁面](https://github.com/Bravakaikai/DesktopPal/releases)——上面「下載」那節的連結指的就是這裡。
+
+要發一個新版本：
+1. 把 `package.json` 的 `"version"` 往上調（例如 `0.2.0`）。
+2. commit 後打 tag 並推上去：`git tag v0.2.0 && git push origin v0.2.0`。
+3. 這個 workflow 會分別在 `windows-latest` 和 `macos-latest` runner 上各跑一次 `npm run release`（build + `electron-builder --publish always`），各自把自己平台的安裝檔上傳到跟這個 tag 對應的 GitHub Release。
+
+也可以不打 tag，直接到 GitHub 的 Actions 分頁手動觸發（**Run workflow** 按鈕，即 `workflow_dispatch`），這樣會用 `package.json` 目前的版本號發佈。兩邊的安裝檔都沒有做程式碼簽章（跳出的系統警告見上面「下載」那節），要簽章需要付費的 Apple／Windows 憑證存成 repo secrets，這個專案目前沒有設定。
 
 ## 美術資源管線
 

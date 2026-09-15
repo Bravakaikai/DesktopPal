@@ -4,6 +4,17 @@ A cross-platform (Windows / macOS) virtual desktop pet. A transparent, click-thr
 
 *[繁體中文說明 →](README.zh-Hant.md)*
 
+## Download
+
+Grab the latest build from the **[Releases page](https://github.com/Bravakaikai/DesktopPal/releases/latest)** — pick the installer for your OS and run it:
+
+- **Windows**: `DesktopPal Setup x.x.x.exe` (installer) or `DesktopPal x.x.x.exe` (portable, no install needed)
+- **macOS**: `DesktopPal-x.x.x.dmg` — open it and drag DesktopPal into Applications
+
+These builds aren't code-signed (that requires a paid developer certificate), so your OS will show a warning the first time:
+- **Windows**: SmartScreen says "Windows protected your PC" — click **More info → Run anyway**.
+- **macOS**: Gatekeeper refuses to open it normally — right-click (or Control-click) the app → **Open** → **Open** again in the confirmation dialog.
+
 ## Screenshots
 
 | Pet overlay (toolbar open) | Pet picker & settings |
@@ -100,6 +111,17 @@ Output lands in `release/` (gitignored).
 - The `build` field in `package.json` only packages `dist/**/*` — the main process only ever reads pet assets from `dist/assets/...` (copied there by `scripts/copy-static.js` at build time), so the root-level `assets/` sources never need to ship, keeping the installer lean.
 - The app icon (`build/icon.png`, 1024×1024) is composed from the pug artwork; electron-builder auto-generates the platform-specific `.ico`/`.icns` from it. To change it, regenerate with `env -u ELECTRON_RUN_AS_NODE ./node_modules/electron/dist/electron.exe scripts/generate-icon.cjs`, or replace `build/icon.png` directly with your own 1024×1024 square PNG.
 - macOS `.dmg`/`.zip` builds can only be produced on an actual Mac (or a CI runner with macOS, e.g. GitHub Actions' `macos-latest`) — that's an Apple tooling requirement, not something this project can work around.
+
+### Automated releases (CI/CD)
+
+`.github/workflows/release.yml` builds Windows and macOS installers on GitHub Actions and publishes them straight to the [Releases page](https://github.com/Bravakaikai/DesktopPal/releases) — that's what the [Download](#download) section above points to.
+
+To cut a new release:
+1. Bump `"version"` in `package.json` (e.g. `0.2.0`).
+2. Commit, then tag and push: `git tag v0.2.0 && git push origin v0.2.0`.
+3. The workflow runs on both a `windows-latest` and a `macos-latest` runner, each running `npm run release` (build + `electron-builder --publish always`), and uploads its own platform's installers to a GitHub Release matching the tag.
+
+You can also trigger a build without a tag from the Actions tab (**Run workflow** button, `workflow_dispatch`) — it publishes under whatever version is currently in `package.json`. Neither build is code-signed (see the Download section for the resulting OS warnings); that would need a paid Apple/Windows signing certificate stored as repo secrets, which isn't set up here.
 
 ## Art pipeline
 

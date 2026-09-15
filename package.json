@@ -5,6 +5,10 @@
   "description": "跨平台桌面虛擬寵物陪伴軟體",
   "author": "DesktopPal contributors",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bravakaikai/DesktopPal.git"
+  },
   "main": "dist/main/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
@@ -13,7 +17,8 @@
     "dist": "npm run build && electron-builder",
     "dist:win": "npm run build && electron-builder --win",
     "dist:mac": "npm run build && electron-builder --mac",
-    "dist:linux": "npm run build && electron-builder --linux"
+    "dist:linux": "npm run build && electron-builder --linux",
+    "release": "npm run build && electron-builder --publish always"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
@@ -30,6 +35,11 @@
     ],
     "directories": {
       "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Bravakaikai",
+      "repo": "DesktopPal"
     },
     "win": {
       "target": [
