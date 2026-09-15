@@ -11,8 +11,8 @@ const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const legs=[
   {name:'far-rear',width:27,hip:{x:62,y:116},knee:{x:53,y:159},foot:{x:65,y:194},phase:.5,trotPhase:.5},
   {name:'near-rear',width:38,hip:{x:69,y:124},knee:{x:64,y:163},foot:{x:67,y:200},phase:0,trotPhase:0},
-  {name:'near-front',width:32,hip:{x:141,y:132},knee:{x:144,y:172},foot:{x:153,y:210},phase:.75,trotPhase:.5},
-  {name:'far-front',width:26,hip:{x:170,y:126},knee:{x:164,y:162},foot:{x:155,y:200},phase:.25,trotPhase:0},
+  {name:'near-front',front:true,width:32,hip:{x:147,y:132},knee:{x:147,y:166},foot:{x:149,y:200},phase:.75,trotPhase:.5},
+  {name:'far-front',front:true,width:26,hip:{x:154,y:126},knee:{x:154,y:158},foot:{x:156,y:190},phase:.25,trotPhase:0},
 ];
 function sample(source,width,height,u,v,target,q){
   const ix=Math.floor(u),iy=Math.floor(v),fx=u-ix,fy=v-iy;
@@ -39,7 +39,15 @@ async function limbArtwork(leg,folder){
   return out;
 }
 function solve(leg,foot,bob){
-  const hip={x:leg.hip.x,y:leg.hip.y+bob},a=distance(leg.hip,leg.knee),b=distance(leg.knee,leg.foot),d=distance(hip,foot);
+  const hip={x:leg.hip.x,y:leg.hip.y+bob},d=distance(hip,foot);
+  let a=distance(leg.hip,leg.knee),b=distance(leg.knee,leg.foot);
+  // Front legs stand almost straight. Permit a small, even extension at the
+  // ends of a stride instead of adding permanent slack that bows both elbows.
+  if(leg.front){
+    const extension=Math.max(1,d/(a+b-.001));
+    assert.ok(extension<1.14,`${leg.name}: excessive stride extension`);
+    a*=extension;b*=extension;
+  }
   assert.ok(d<a+b+.01,`${leg.name}: foot exceeds bone reach`);
   const reach=Math.min(d,a+b-.001),base=Math.atan2(foot.y-hip.y,foot.x-hip.x);
   const cross=(leg.foot.x-leg.hip.x)*(leg.knee.y-leg.hip.y)-(leg.foot.y-leg.hip.y)*(leg.knee.x-leg.hip.x);
@@ -48,7 +56,8 @@ function solve(leg,foot,bob){
 }
 function bonePoint(p,a,b,nextA,nextB){
   const angle=Math.atan2(nextB.y-nextA.y,nextB.x-nextA.x)-Math.atan2(b.y-a.y,b.x-a.x);
-  return {x:nextA.x+(p.x-a.x)*Math.cos(angle)-(p.y-a.y)*Math.sin(angle),y:nextA.y+(p.y-a.y)*Math.cos(angle)+(p.x-a.x)*Math.sin(angle)};
+  const stretch=distance(nextA,nextB)/distance(a,b);
+  return {x:nextA.x+((p.x-a.x)*Math.cos(angle)-(p.y-a.y)*Math.sin(angle))*stretch,y:nextA.y+((p.y-a.y)*Math.cos(angle)+(p.x-a.x)*Math.sin(angle))*stretch};
 }
 function transform(p,source,target){
   const smooth=v=>{v=clamp(v,0,1);return v*v*(3-2*v);};
@@ -84,8 +93,9 @@ async function main(){
   const bodyPoints=[{x:0,y:0},{x:255,y:0},{x:0,y:255},{x:255,y:255}],bodyTriangles=[[0,1,2],[1,2,3]];
   const manifest=JSON.parse(fs.readFileSync(path.join(runtime,'manifest.json')));
   let occlusionPixels=0;
+  const frontJointChecks=[];
   for(const action of ['walk','run','idle']){
-    const travel=action==='run'?38:54,stance=action==='run'?.58:.76,stride=travel/stance;
+    const travel=action==='run'?38:60,stance=action==='run'?.58:.76,stride=travel/stance;
     const n=action==='idle'?12:count,frames=[],buffers=[],footprints=[];
     for(let frame=0;frame<n;frame++){
       const phase=frame/n,bob=action==='idle'?12+Math.sin(phase*Math.PI*2)*.45:12;
@@ -93,9 +103,19 @@ async function main(){
         const t=(phase+(action==='run'?leg.trotPhase:leg.phase))%1,s=clamp((t-stance)/(1-stance),0,1);
         const tangent=-(1-stance)/stance,swing=s*s*(3-2*s)+tangent*(2*s*s*s-3*s*s+s);
         const moving=action!=='idle',lift=!moving||t<stance?0:Math.sin(Math.PI*s)**2*(action==='run'?15:20);
-        const foot={x:leg.foot.x+(!moving?0:t<stance?travel*(.5-t/stance):travel*(swing-.5)),y:leg.foot.y-lift};
+        // Front feet share the body's rest offset. Omitting it makes the idle
+        // pose 12 px crouched and turns straight front legs into bow legs.
+        const foot={x:leg.foot.x+(!moving?0:t<stance?travel*(.5-t/stance):travel*(swing-.5)),y:leg.foot.y+(leg.front?12:0)-lift};
         return {...solve(leg,foot,bob),pawAngle:lift?-.22*Math.sin(Math.PI*s):0,lift};
       });
+      for(let i=0;i<legs.length;i++)if(legs[i].front){
+        const p=pose[i],axis={x:p.foot.x-p.hip.x,y:p.foot.y-p.hip.y};
+        const elbowOffset=(axis.x*(p.knee.y-p.hip.y)-axis.y*(p.knee.x-p.hip.x))/Math.hypot(axis.x,axis.y);
+        assert.ok(elbowOffset>=-.01,'Both front elbows must fold backward, never in opposite directions');
+        if(p.lift===0)assert.ok(elbowOffset<5.5,'Supporting front leg must stay nearly straight');
+        if(action==='idle')assert.ok(Math.abs(axis.x)<=3,'Resting front paw must sit below its shoulder');
+        frontJointChecks.push({action,frame,leg:legs[i].name,hip:p.hip,knee:p.knee,foot:p.foot,lift:p.lift,elbowOffset});
+      }
       footprints.push(pose.map(p=>({...p.foot,lift:p.lift})));
       const paintedBody=deform(body,bodyPoints,bodyTriangles,[],phase,p=>({x:p.x,y:p.y+bob}));
       const paintedLegs=rigs.map((rig,i)=>deform(limbs[i],rig.points,rig.triangles,[],phase,p=>transform(p,legs[i],pose[i])));
@@ -125,11 +145,12 @@ async function main(){
   manifest.speed=24;manifest.behaviors.find(p=>p.action==='run').speedScale=46/24;
   fs.writeFileSync(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2));
   fs.writeFileSync(path.join(output,'layer-check.json'),JSON.stringify({occlusionPixels,order:['far-rear','far-front','body','near-rear','near-front']},null,2));
+  fs.writeFileSync(path.join(output,'front-joints.json'),JSON.stringify(frontJointChecks,null,2));
   if(process.argv.includes('--apply')){
     for(const action of ['walk','run','idle'])for(const file of manifest.animations[action].frames)fs.copyFileSync(path.join(output,file),path.join(runtime,file));
     fs.copyFileSync(path.join(output,'manifest.json'),path.join(runtime,'manifest.json'));
   }
-  console.log(`Built clean dog walk/run/idle: full-paw forward passing, fixed limb lengths, ${occlusionPixels} verified occlusion pixels`);
+  console.log(`Built clean dog walk/run/idle: aligned front legs, full-paw forward passing, ${occlusionPixels} verified occlusion pixels`);
 }
 module.exports={main};
 if(require.main===module)main().catch(e=>{console.error(e);process.exit(1)});

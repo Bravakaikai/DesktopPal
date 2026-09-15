@@ -4,6 +4,8 @@ Generated with the built-in imagegen tool, using `../dog-gait-base.png` as the i
 
 The main body has no baked-in leg remnants. Each limb is a complete painted part, so a crossing cannot expose a clipped stump from the old pose. The compositing order is far hind leg, far front leg, body, near hind leg, near front leg. Joint weights blend continuously instead of cutting at the knee. `walk-footprints.json` verifies that every returning paw lands at least 32 source pixels ahead of its supporting partner.
 
+Front shoulders, elbows and resting paws are aligned in parallel, with both elbows folding backward. Front feet include the body's 12 px rest offset, so idle no longer forces a crouch. A bounded extension (under 14%) accommodates the ends of a planted stride without adding permanent elbow slack; grounded paws remain level. `front-joints.json` records the joints through idle, walk and run, and the generator rejects opposing bends, excessive supporting-leg bowing or misaligned resting paws before deployment.
+
 Rebuild:
 
 ```powershell
