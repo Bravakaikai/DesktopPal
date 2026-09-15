@@ -14,10 +14,10 @@
     "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
     "start": "npm run build && electron .",
     "dev": "tsc -p tsconfig.json -w",
-    "dist": "npm run build && electron-builder",
-    "dist:win": "npm run build && electron-builder --win",
-    "dist:mac": "npm run build && electron-builder --mac",
-    "dist:linux": "npm run build && electron-builder --linux"
+    "dist": "npm run build && electron-builder --publish never",
+    "dist:win": "npm run build && electron-builder --win --publish never",
+    "dist:mac": "npm run build && electron-builder --mac --publish never",
+    "dist:linux": "npm run build && electron-builder --linux --publish never"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
