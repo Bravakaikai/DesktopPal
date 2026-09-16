@@ -1,0 +1,3458 @@
+[
+  {
+    "action": "walk",
+    "frame": 0,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 0,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 0,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 0,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999998,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 1,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 1,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 1,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 1,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999981,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 2,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 2,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 2,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 2,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 3,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 3,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 3,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 3,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 4,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 4,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 4,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 4,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 5,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 5,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 5,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 5,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 6,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 6,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 6,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 6,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 7,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 7,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 7,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 7,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 8,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 8,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 8,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 8,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 9,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 9,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 9,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 9,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 10,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 10,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 10,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 10,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999998,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 11,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 11,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 11,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 11,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 12,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 12,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 12,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 12,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 13,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 13,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 13,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 13,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 14,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 14,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 14,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 14,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 15,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 15,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 15,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 15,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 16,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 16,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 16,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 16,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 17,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 17,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 17,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 17,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 18,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 18,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 18,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 18,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 19,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 19,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 19,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 19,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 20,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 20,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 20,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 20,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 21,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 21,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 21,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 21,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 22,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 22,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 22,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 22,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 23,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 23,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 23,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 23,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 24,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 24,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 24,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 24,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 25,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 25,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 25,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 25,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 26,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 26,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 26,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 26,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 27,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 27,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 27,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 27,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 28,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 28,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 28,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 28,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 29,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 29,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 29,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 29,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 30,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 30,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 30,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 30,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 31,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 31,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999998,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 31,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 31,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 32,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 32,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 32,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 32,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999981,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 33,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 33,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 33,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "walk",
+    "frame": 33,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 34,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 34,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 34,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 34,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 35,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 35,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 35,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 35,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 36,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 36,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 36,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 36,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 37,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 37,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 37,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 37,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 38,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 38,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000002
+  },
+  {
+    "action": "walk",
+    "frame": 38,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 38,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 39,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 39,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 39,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 39,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 40,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 40,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 40,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 40,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 41,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 41,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 41,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 41,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 42,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 42,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 42,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 42,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 43,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 43,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 43,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 43,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 44,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 44,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 44,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 44,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "walk",
+    "frame": 45,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 45,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 45,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 45,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 46,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "walk",
+    "frame": 46,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "walk",
+    "frame": 46,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 46,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "walk",
+    "frame": 47,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "walk",
+    "frame": 47,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 47,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "walk",
+    "frame": 47,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999979,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 0,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 0,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 0,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 0,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 1,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 1,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 1,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 1,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 2,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 2,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 2,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 2,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 3,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 3,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 3,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 3,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 4,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 4,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 4,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 4,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 5,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 5,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 5,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 5,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 6,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 6,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 6,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 6,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 7,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 7,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 7,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 7,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 8,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 8,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 8,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 8,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 9,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 9,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 9,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 9,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 10,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 10,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 10,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 10,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 11,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 11,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 11,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 11,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 12,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 12,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 12,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 12,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 13,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 13,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 13,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 13,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 14,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 14,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 14,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 14,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 15,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 15,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 15,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 15,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 16,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 16,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 16,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 16,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 17,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 17,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 17,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 17,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 18,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 18,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 18,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 18,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 19,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 19,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 19,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 19,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 20,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 20,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 20,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 20,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 21,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 21,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 21,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 21,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 22,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 22,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 22,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 22,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 23,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 23,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 23,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 23,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999981,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 24,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 24,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 24,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 24,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 25,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 25,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 25,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 25,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 26,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 26,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 26,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 26,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 27,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 27,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 27,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 27,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999998,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 28,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 28,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 28,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 28,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 29,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 29,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999998,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 29,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 29,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999981,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 30,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 30,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 30,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 30,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 31,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 31,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 31,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 31,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 32,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 32,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 32,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 32,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 33,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 33,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 33,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 33,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 34,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 34,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 34,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 34,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 35,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 35,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 35,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 35,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 36,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 36,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 36,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 36,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 37,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 37,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 37,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 37,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 38,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 38,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 38,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 38,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 39,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 39,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 39,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 39,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 40,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 40,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 40,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 40,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.999999999999998,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 41,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 41,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 41,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 41,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 42,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 42,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 42,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 42,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 43,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 43,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 43,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 43,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "run",
+    "frame": 44,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000002
+  },
+  {
+    "action": "run",
+    "frame": 44,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 44,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 44,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 45,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 45,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 45,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999991,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 45,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 46,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "run",
+    "frame": 46,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 46,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "run",
+    "frame": 46,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "run",
+    "frame": 47,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "run",
+    "frame": 47,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "run",
+    "frame": 47,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "run",
+    "frame": 47,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "idle",
+    "frame": 0,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 0,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 0,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 1,
+    "maxRatio": 1
+  },
+  {
+    "action": "idle",
+    "frame": 0,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 1,
+    "maxRatio": 1
+  },
+  {
+    "action": "idle",
+    "frame": 1,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 1,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 1,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 1,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "idle",
+    "frame": 2,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 2,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 2,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 2,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 3,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 3,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 3,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "idle",
+    "frame": 3,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "idle",
+    "frame": 4,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 4,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 4,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 4,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 5,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 5,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 5,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999984,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 5,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999989,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "idle",
+    "frame": 6,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 6,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999996,
+    "maxRatio": 1.0000000000000009
+  },
+  {
+    "action": "idle",
+    "frame": 6,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 1,
+    "maxRatio": 1
+  },
+  {
+    "action": "idle",
+    "frame": 6,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 1,
+    "maxRatio": 1
+  },
+  {
+    "action": "idle",
+    "frame": 7,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 7,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 7,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "idle",
+    "frame": 7,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "idle",
+    "frame": 8,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "idle",
+    "frame": 8,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 8,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "idle",
+    "frame": 8,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "idle",
+    "frame": 9,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999994,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 9,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 9,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.999999999999999,
+    "maxRatio": 1.0000000000000018
+  },
+  {
+    "action": "idle",
+    "frame": 9,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999983,
+    "maxRatio": 1.0000000000000016
+  },
+  {
+    "action": "idle",
+    "frame": 10,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999993,
+    "maxRatio": 1.0000000000000004
+  },
+  {
+    "action": "idle",
+    "frame": 10,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999997,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 10,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999986,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "idle",
+    "frame": 10,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999982,
+    "maxRatio": 1.0000000000000013
+  },
+  {
+    "action": "idle",
+    "frame": 11,
+    "leg": "far-rear",
+    "sections": 36,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 11,
+    "leg": "near-rear",
+    "sections": 35,
+    "minRatio": 0.9999999999999992,
+    "maxRatio": 1.0000000000000007
+  },
+  {
+    "action": "idle",
+    "frame": 11,
+    "leg": "near-front",
+    "sections": 31,
+    "minRatio": 0.9999999999999987,
+    "maxRatio": 1.000000000000001
+  },
+  {
+    "action": "idle",
+    "frame": 11,
+    "leg": "far-front",
+    "sections": 29,
+    "minRatio": 0.9999999999999988,
+    "maxRatio": 1.0000000000000013
+  }
+]

@@ -4,16 +4,18 @@ const path=require('node:path');
 const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
 
 module.exports=async function checkWalk(win,mouse) {
+  require('./check-dog-leg-width.cjs');
   const root=path.resolve(__dirname,'..');
-  const track=JSON.parse(fs.readFileSync(path.join(root,'assets/source-2d/dog-gait-v5/walk-footprints.json')));
+  const track=JSON.parse(fs.readFileSync(path.join(root,'assets/source-2d/dog-gait-v6/walk-footprints.json')));
   assert.deepEqual(track.landings.map(item=>item.frame),[0,12,24,36],'Four evenly spaced walking footfalls');
   assert.equal(new Set(track.landings.map(item=>item.leg)).size,4,'Each of the four paws takes its own turn');
   for(const {frame,leg} of track.landings)assert.ok(track.frames[frame][leg].x-track.frames[frame][leg^1].x>=32,'Trailing paw must land fully ahead of the supporting paw, not just cross centres');
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'dist/assets/pets/dog/manifest.json')));
   let head;
-  for(const frame of manifest.animations.walk.frames) {
+  for(const action of ['walk','run','idle'])for(const frame of manifest.animations[action].frames) {
     const runtime=fs.readFileSync(path.join(root,'dist/assets/pets/dog',frame));
-    assert.ok(runtime.equals(fs.readFileSync(path.join(root,'assets/source-2d/dog-gait-v5',frame))),'Built app must contain the new walking frames');
+    assert.ok(runtime.equals(fs.readFileSync(path.join(root,'assets/source-2d/dog-gait-v6',frame))),'Built app must contain the matching walk, run and idle artwork');
+    if(action!=='walk')continue;
     const crop=await sharp(runtime).extract({left:105,top:35,width:125,height:65}).raw().toBuffer();
     if(head)assert.ok(crop.equals(head),'Head stays level through the walking cycle');
     head=crop;

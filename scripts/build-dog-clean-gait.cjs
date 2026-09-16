@@ -9,10 +9,10 @@ const root=path.resolve(__dirname,'..'),size=256,count=48;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const legs=[
-  {name:'far-rear',width:27,hip:{x:62,y:116},knee:{x:53,y:159},foot:{x:65,y:194},phase:.5,trotPhase:.5},
-  {name:'near-rear',width:38,hip:{x:69,y:124},knee:{x:64,y:163},foot:{x:67,y:200},phase:0,trotPhase:0},
-  {name:'near-front',front:true,width:32,hip:{x:147,y:132},knee:{x:147,y:166},foot:{x:149,y:200},phase:.75,trotPhase:.5},
-  {name:'far-front',front:true,width:26,hip:{x:154,y:126},knee:{x:154,y:158},foot:{x:156,y:190},phase:.25,trotPhase:0},
+  {name:'far-rear',width:46,hip:{x:62,y:116},knee:{x:53,y:159},foot:{x:65,y:194},phase:.5,trotPhase:.5},
+  {name:'near-rear',width:46,hip:{x:69,y:124},knee:{x:64,y:163},foot:{x:67,y:200},phase:0,trotPhase:0},
+  {name:'near-front',front:true,width:44,hip:{x:147,y:132},knee:{x:147,y:166},foot:{x:149,y:200},phase:.75,trotPhase:.5},
+  {name:'far-front',front:true,width:44,hip:{x:154,y:126},knee:{x:154,y:158},foot:{x:156,y:190},phase:.25,trotPhase:0},
 ];
 function sample(source,width,height,u,v,target,q){
   const ix=Math.floor(u),iy=Math.floor(v),fx=u-ix,fy=v-iy;
@@ -55,11 +55,14 @@ function solve(leg,foot,bob){
   return {hip,knee:{x:hip.x+Math.cos(base+Math.sign(cross)*bend)*a,y:hip.y+Math.sin(base+Math.sign(cross)*bend)*a},foot};
 }
 function bonePoint(p,a,b,nextA,nextB){
-  const angle=Math.atan2(nextB.y-nextA.y,nextB.x-nextA.x)-Math.atan2(b.y-a.y,b.x-a.x);
-  const stretch=distance(nextA,nextB)/distance(a,b);
-  return {x:nextA.x+((p.x-a.x)*Math.cos(angle)-(p.y-a.y)*Math.sin(angle))*stretch,y:nextA.y+((p.y-a.y)*Math.cos(angle)+(p.x-a.x)*Math.sin(angle))*stretch};
+  const length=distance(a,b),nextLength=distance(nextA,nextB);
+  const along=((p.x-a.x)*(b.x-a.x)+(p.y-a.y)*(b.y-a.y))/(length*length);
+  const across=((p.x-a.x)*(b.y-a.y)-(p.y-a.y)*(b.x-a.x))/length;
+  // Extension affects bone length only, never the thickness of the leg.
+  return {x:nextA.x+along*(nextB.x-nextA.x)+across*(nextB.y-nextA.y)/nextLength,
+    y:nextA.y+along*(nextB.y-nextA.y)-across*(nextB.x-nextA.x)/nextLength};
 }
-function transform(p,source,target){
+function blendBones(p,source,target){
   const smooth=v=>{v=clamp(v,0,1);return v*v*(3-2*v);};
   const mix=(a,b,t)=>({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t});
   const upper=bonePoint(p,source.hip,source.knee,target.hip,target.knee);
@@ -69,6 +72,25 @@ function transform(p,source,target){
   const skin=mix(upper,lower,smooth((p.y-source.knee.y+14)/28));
   return mix(skin,paw,smooth((p.y-source.foot.y+19)/12));
 }
+function limbTransform(source,target){
+  const sections=new Map();
+  return p=>{
+    let section=sections.get(p.y);
+    if(!section){
+      const a=p.y<source.knee.y?source.hip:source.knee,b=p.y<source.knee.y?source.knee:source.foot;
+      const center={x:p.y>=source.foot.y?source.foot.x:a.x+(b.x-a.x)*(p.y-a.y)/(b.y-a.y),y:p.y};
+      const next=blendBones(center,source,target),side=blendBones({x:center.x+1,y:p.y},source,target);
+      const widthScale=distance(next,side);
+      assert.ok(widthScale>.1,'Joint section cannot collapse');
+      section={center,next,normal:{x:(side.x-next.x)/widthScale,y:(side.y-next.y)/widthScale}};
+      sections.set(p.y,section);
+    }
+    // Blending rotated bones compresses the inside of a bent joint. Restore
+    // the painted cross-section around its moving centre, including ankles.
+    const offset=p.x-section.center.x;
+    return {x:section.next.x+offset*section.normal.x,y:section.next.y+offset*section.normal.y};
+  };
+}
 function over(destination,layer){
   for(let q=0;q<destination.length;q+=4){
     const a=layer[q+3]/255,b=destination[q+3]/255*(1-a),alpha=a+b;if(!a)continue;
@@ -77,7 +99,7 @@ function over(destination,layer){
   }
 }
 async function main(){
-  const folder=path.join(root,'assets/source-2d/dog-rig-v1'),output=path.join(root,'assets/source-2d/dog-gait-v5');
+  const folder=path.join(root,'assets/source-2d/dog-rig-v2'),output=path.join(root,'assets/source-2d/dog-gait-v6');
   const runtime=path.join(root,'assets/pets/dog');fs.mkdirSync(output,{recursive:true});
   const bodyPng=await sharp({create:{width:size,height:size,channels:4,background:'#0000'}})
     .composite([{input:await sharp(path.join(folder,'body.png')).resize(196,134,{fit:'fill'}).png().toBuffer(),left:36,top:34}]).png().toBuffer();
@@ -94,6 +116,8 @@ async function main(){
   const manifest=JSON.parse(fs.readFileSync(path.join(runtime,'manifest.json')));
   let occlusionPixels=0;
   const frontJointChecks=[];
+  const widthChecks=[];
+  const previewFrames={};
   for(const action of ['walk','run','idle']){
     const travel=action==='run'?38:60,stance=action==='run'?.58:.76,stride=travel/stance;
     const n=action==='idle'?12:count,frames=[],buffers=[],footprints=[];
@@ -118,18 +142,36 @@ async function main(){
       }
       footprints.push(pose.map(p=>({...p.foot,lift:p.lift})));
       const paintedBody=deform(body,bodyPoints,bodyTriangles,[],phase,p=>({x:p.x,y:p.y+bob}));
-      const paintedLegs=rigs.map((rig,i)=>deform(limbs[i],rig.points,rig.triangles,[],phase,p=>transform(p,legs[i],pose[i])));
+      const transforms=legs.map((leg,i)=>limbTransform(leg,pose[i]));
+      for(let i=0;i<legs.length;i++){
+        let minRatio=Infinity,maxRatio=0,sections=0;
+        for(let y=legs[i].hip.y+12;y<=legs[i].foot.y+4;y+=2){
+          const edges=[];
+          for(let x=0;x<size;x++)if(limbs[i][(y*size+x)*4+3]>=128)edges.push(x);
+          if(edges.length<4)continue;
+          const left={x:edges[0],y},right={x:edges.at(-1),y};
+          const ratio=distance(transforms[i](left),transforms[i](right))/distance(left,right);
+          assert.ok(Math.abs(ratio-1)<.00001,`${action} ${frame} ${legs[i].name}: painted leg width changed`);
+          minRatio=Math.min(minRatio,ratio);maxRatio=Math.max(maxRatio,ratio);sections++;
+        }
+        widthChecks.push({action,frame,leg:legs[i].name,sections,minRatio,maxRatio});
+      }
+      const paintedLegs=rigs.map((rig,i)=>deform(limbs[i],rig.points,rig.triangles,[],phase,transforms[i]));
       const out=Buffer.alloc(size*size*4);
       for(const layer of [paintedLegs[0],paintedLegs[3],paintedBody,paintedLegs[1],paintedLegs[2]])over(out,layer);
       // Inspect actual composited crossing pixels, including torso overlap.
-      for(let q=0;q<out.length;q+=4)if(paintedLegs[2][q+3]===255&&(paintedLegs[3][q+3]||paintedBody[q+3])){
-        for(let c=0;c<3;c++)assert.equal(out[q+c],paintedLegs[2][q+c],'Near front paw must cover far paw/body');
+      for(let q=0;q<out.length;q+=4)if(paintedLegs[2][q+3]>=240&&(paintedLegs[3][q+3]||paintedBody[q+3])){
+        // Retain the repainted PNG's genuine alpha (its interior is 253/255).
+        // Only the alpha-allowed background contribution may remain visible.
+        const tolerance=256-paintedLegs[2][q+3];
+        for(let c=0;c<3;c++)assert.ok(Math.abs(out[q+c]-paintedLegs[2][q+c])<=tolerance,'Near front paw must cover far paw/body');
         occlusionPixels++;
       }
       const name=`${action}-${String(frame).padStart(2,'0')}.png`,png=await sharp(out,{raw:{width:size,height:size,channels:4}}).png().toBuffer();
       frames.push(name);buffers.push(png);fs.writeFileSync(path.join(output,name),png);
     }
     manifest.animations[action]={frames,fps:action==='idle'?8:48,loop:true,...(action==='idle'?{}:{stride})};
+    previewFrames[action]=buffers;
     if(action==='walk'){
       const landings=footprints.flatMap((feet,i)=>feet.flatMap((foot,leg)=>foot.lift<=.01&&footprints[(i+n-1)%n][leg].lift>.01?[{frame:i,leg}]:[]));
       assert.deepEqual(landings.map(p=>p.frame),[0,12,24,36]);
@@ -146,11 +188,19 @@ async function main(){
   fs.writeFileSync(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2));
   fs.writeFileSync(path.join(output,'layer-check.json'),JSON.stringify({occlusionPixels,order:['far-rear','far-front','body','near-rear','near-front']},null,2));
   fs.writeFileSync(path.join(output,'front-joints.json'),JSON.stringify(frontJointChecks,null,2));
+  fs.writeFileSync(path.join(output,'leg-width-check.json'),JSON.stringify(widthChecks,null,2));
+  const comparison=await sharp({create:{width:size*2,height:size*count,channels:4,background:'#0000'}})
+    .composite(previewFrames.walk.flatMap((input,i)=>[
+      {input:previewFrames.idle[Math.floor(i*previewFrames.idle.length/count)],left:0,top:i*size},
+      {input,left:size,top:i*size}
+    ])).raw().toBuffer();
+  await sharp(comparison,{raw:{width:size*2,height:size*count,channels:4,pageHeight:size}})
+    .gif({loop:0,delay:Array(count).fill(30),dither:0}).toFile(path.join(root,'blender/dog-leg-width-consistency.gif'));
   if(process.argv.includes('--apply')){
     for(const action of ['walk','run','idle'])for(const file of manifest.animations[action].frames)fs.copyFileSync(path.join(output,file),path.join(runtime,file));
     fs.copyFileSync(path.join(output,'manifest.json'),path.join(runtime,'manifest.json'));
   }
   console.log(`Built clean dog walk/run/idle: aligned front legs, full-paw forward passing, ${occlusionPixels} verified occlusion pixels`);
 }
-module.exports={main};
+module.exports={main,bonePoint,limbTransform};
 if(require.main===module)main().catch(e=>{console.error(e);process.exit(1)});

@@ -6,6 +6,8 @@ The main body has no baked-in leg remnants. Each limb is a complete painted part
 
 Front shoulders, elbows and resting paws are aligned in parallel, with both elbows folding backward. Front feet include the body's 12 px rest offset, so idle no longer forces a crouch. A bounded extension (under 14%) accommodates the ends of a planted stride without adding permanent elbow slack; grounded paws remain level. `front-joints.json` records the joints through idle, walk and run, and the generator rejects opposing bends, excessive supporting-leg bowing or misaligned resting paws before deployment.
 
+Bone extension now scales only along the bone. Skin sections preserve their painted width through both the knee and ankle blends, which otherwise shrink during bending. All four limbs share this skinning in idle, walk and run. `leg-width-check.json` records painted-width measurements for all 432 limb poses; `node scripts/check-dog-leg-width.cjs` also checks extension and a sharply bent joint independently. `blender/dog-leg-width-consistency.gif` compares idle (left) and walking (right) at the same scale.
+
 Rebuild:
 
 ```powershell
