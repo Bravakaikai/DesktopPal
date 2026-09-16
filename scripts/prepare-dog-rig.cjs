@@ -1,6 +1,6 @@
 const fs=require('node:fs');
 const path=require('node:path');
-const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.PET_SHARP_PATH || 'sharp');
 const root=path.resolve(__dirname,'..');
 const destination=path.join(root,'assets/source-2d/dog-rig-v1');
 async function main(){

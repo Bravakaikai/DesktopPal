@@ -1,6 +1,6 @@
 const fs=require('node:fs');
 const path=require('node:path');
-const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.PET_SHARP_PATH || 'sharp');
 const root=path.resolve(__dirname,'..'),size=256;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 async function main(){

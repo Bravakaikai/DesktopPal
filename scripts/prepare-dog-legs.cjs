@@ -2,7 +2,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const assert=require('node:assert/strict');
-const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.PET_SHARP_PATH || 'sharp');
 const root=path.resolve(__dirname,'..');
 async function main(){
   const source=path.join(root,'assets/source-2d/dog-legs-atlas-v2.png');

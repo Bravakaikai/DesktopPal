@@ -1,5 +1,5 @@
 const path=require('node:path');
-const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.PET_SHARP_PATH || 'sharp');
 const root=path.resolve(__dirname,'..');
 (async()=>{
   const files=['assets/pets/dog/sit-00.png','assets/source-2d/dog-rig-v2/previous-walk-00.png','assets/source-2d/dog-gait-v6/walk-00.png'];

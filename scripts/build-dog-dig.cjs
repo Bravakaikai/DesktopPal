@@ -1,7 +1,7 @@
 // Animate the existing drawing as one connected mesh; no blended silhouettes.
 const fs=require('node:fs');
 const path=require('node:path');
-const sharp=require(process.env.PET_SHARP_PATH || 'C:/Users/kelly.huang.KELLYHUANG-PC/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.PET_SHARP_PATH || 'sharp');
 const {triangulate,deform}=require('./build-dog-gait.cjs');
 const root=path.resolve(__dirname,'..'),folder=path.join(root,'assets/pets/dog');
 const frameCount=24,fps=32;
